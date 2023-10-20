@@ -28,7 +28,6 @@
             <groupId>io.metersphere</groupId>
             <artifactId>metersphere-plugin-api-sdk</artifactId>
             <version>3.x</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 
