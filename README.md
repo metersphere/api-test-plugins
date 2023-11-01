@@ -9,7 +9,7 @@ MeterSphere 接口测试插件
 
 ### 下载插件
 
-请在该项目的 [release](https://github.com/metersphere/metersphere-platform-plugin/releases) 页面下载对应版本的平台插件。
+请在该项目的 [release](https://github.com/metersphere/api-test-plugins/releases) 页面下载对应版本的平台插件。
 
 ### 使用说明
 
