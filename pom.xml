@@ -16,6 +16,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
+        <!-- 打包时将这些参数写入 MANIFEST.MF供 pf4j 识别，别修改 -->
+        <plugin.id>cloud-quota</plugin.id>
+        <plugin.version>${reversion}</plugin.version>
+        <plugin.provider>fit2cloud</plugin.provider>
+        <plugin.dependencies/>
     </properties>
 
     <modules>
@@ -30,5 +35,4 @@
             <version>3.x</version>
         </dependency>
     </dependencies>
-
 </project>
