@@ -16,7 +16,8 @@
 
     </dependencies>
     <properties>
-        <plugin.class>io.metersphere.plugin.dubbo.DubboPlugin</plugin.class>
+        <plugin.id>parallel-controller</plugin.id>
+        <plugin.class>io.metersphere.plugin.parallel.ParallelControllerPlugin</plugin.class>
     </properties>
     <build>
         <plugins>

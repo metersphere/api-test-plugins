@@ -15,6 +15,7 @@
 
     </dependencies>
     <properties>
+        <plugin.id>dubbo-sampler</plugin.id>
         <plugin.class>io.metersphere.plugin.dubbo.DubboPlugin</plugin.class>
     </properties>
     <build>

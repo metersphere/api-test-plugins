@@ -7,16 +7,27 @@
         <artifactId>samplers</artifactId>
         <version>${reversion}</version>
     </parent>
-
     <artifactId>tcp-sampler</artifactId>
     <version>${reversion}</version>
-
-    <dependencies>
-
-    </dependencies>
     <properties>
-        <plugin.class>io.metersphere.plugin.dubbo.DubboPlugin</plugin.class>
+        <!-- 打包时将这些参数写入 MANIFEST.MF供 pf4j 识别，别修改 -->
+        <plugin.id>tcp-sampler</plugin.id>
+        <plugin.class>io.metersphere.plugin.tcp.MsTCPPluginImpl</plugin.class>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>ApacheJMeter_tcp</artifactId>
+            <version>${jmeter.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.jmeter</groupId>
+                    <artifactId>ApacheJMeter_core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>

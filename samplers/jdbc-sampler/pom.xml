@@ -10,12 +10,12 @@
 
     <artifactId>jdbc-sampler</artifactId>
     <version>${reversion}</version>
-
     <dependencies>
 
     </dependencies>
     <properties>
-        <plugin.class>io.metersphere.plugin.dubbo.DubboPlugin</plugin.class>
+        <plugin.id>jdbc-sampler</plugin.id>
+        <plugin.class>io.metersphere.plugin.jdbc.JDBCPlugin</plugin.class>
     </properties>
     <build>
         <plugins>
