@@ -26,6 +26,11 @@ public class MsTCPElementConverter extends AbstractJmeterElementConverter<MsTCPS
         final HashTree samplerHashTree = new ListedHashTree();
         samplerHashTree.add(tcpConfig(element));
         TCPSampler tcpSampler = tcpSampler(element);
+
+        // 这两个属性非常关键，不设置会导致SSL证书加载失败和报告展示不规律
+        tcpSampler.setProperty("MS-KEYSTORE-ID", config.getReportId());
+        tcpSampler.setProperty("MS-REPORT-ID", element.getResourceId());
+
         tree.set(tcpSampler, samplerHashTree);
         parseChild(samplerHashTree, element, config);
     }

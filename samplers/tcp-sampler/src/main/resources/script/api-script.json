@@ -1,0 +1,26 @@
+{
+  "id": "api",
+  "name": "TCP插件脚本",
+  "scriptType":"FromCreate",
+  "script": [
+    {
+      "type": "input",
+      "field": "name",
+      "title": "TCP名称",
+      "info": "",
+      "_fc_drag_tag": "input",
+      "hidden": false,
+      "display": true
+    },
+    {
+      "type": "input",
+      "field": "content",
+      "title": "发送内容",
+      "info": "",
+      "_fc_drag_tag": "input",
+      "hidden": false,
+      "display": true
+    }
+  ]
+
+}
