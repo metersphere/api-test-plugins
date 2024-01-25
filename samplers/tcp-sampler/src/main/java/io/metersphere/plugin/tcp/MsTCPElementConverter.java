@@ -1,6 +1,7 @@
 package io.metersphere.plugin.tcp;
 
 
+import io.metersphere.plugin.api.constants.ElementProperty;
 import io.metersphere.plugin.api.dto.ParameterConfig;
 import io.metersphere.plugin.api.spi.AbstractJmeterElementConverter;
 import io.metersphere.plugin.sdk.util.PluginLogUtils;
@@ -27,9 +28,10 @@ public class MsTCPElementConverter extends AbstractJmeterElementConverter<MsTCPS
         samplerHashTree.add(tcpConfig(element));
         TCPSampler tcpSampler = tcpSampler(element);
 
-        // 这两个属性非常关键，不设置会导致SSL证书加载失败和报告展示不规律
-        tcpSampler.setProperty("MS-KEYSTORE-ID", config.getReportId());
-        tcpSampler.setProperty("MS-REPORT-ID", element.getResourceId());
+        // TODO: 当前步骤唯一标识，很重要，结果和步骤匹配的关键
+        tcpSampler.setProperty(ElementProperty.MS_RESOURCE_ID.name(), element.getResourceId());
+        tcpSampler.setProperty(ElementProperty.MS_STEP_ID.name(), element.getStepId());
+        tcpSampler.setProperty(ElementProperty.MS_REPORT_ID.name(), config.getReportId());
 
         tree.set(tcpSampler, samplerHashTree);
         parseChild(samplerHashTree, element, config);
