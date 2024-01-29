@@ -5,6 +5,7 @@ import io.metersphere.plugin.api.constants.ElementProperty;
 import io.metersphere.plugin.api.dto.ParameterConfig;
 import io.metersphere.plugin.api.spi.AbstractJmeterElementConverter;
 import io.metersphere.plugin.sdk.util.PluginLogUtils;
+import org.apache.commons.codec.CharEncoding;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jmeter.config.ConfigTestElement;
 import org.apache.jmeter.protocol.tcp.sampler.MsTCPClientImpl;
@@ -57,12 +58,12 @@ public class MsTCPElementConverter extends AbstractJmeterElementConverter<MsTCPS
         if (StringUtils.equals("TCPClientImpl", element.getClassname())) {
             tcpSampler.setClassname(MsTCPClientImpl.class.getCanonicalName());
         }
-        tcpSampler.setCharset(element.getEncoding());
-        tcpSampler.setServer(element.getServer());
+        tcpSampler.setCharset(CharEncoding.UTF_8);
+        tcpSampler.setServer(element.getServerIp());
         tcpSampler.setPort(element.getPort());
         tcpSampler.setConnectTimeout(element.getConnTimeout());
         tcpSampler.setProperty(TCPSampler.RE_USE_CONNECTION, element.isReUseConnection());
-        tcpSampler.setProperty(TCPSampler.NODELAY, element.isNodelay());
+        tcpSampler.setProperty(TCPSampler.NODELAY, element.isNoDelay());
         tcpSampler.setCloseConnection(String.valueOf(element.isCloseConnection()));
         tcpSampler.setSoLinger(element.getSoLinger());
         if (StringUtils.equalsIgnoreCase("LengthPrefixedBinaryTCPClientImpl", element.getClassname())) {
@@ -70,8 +71,8 @@ public class MsTCPElementConverter extends AbstractJmeterElementConverter<MsTCPS
         } else {
             tcpSampler.setEolByte(element.getEolByte());
         }
-        if (StringUtils.isNotEmpty(element.getTimeout())) {
-            tcpSampler.setTimeout(element.getTimeout());
+        if (StringUtils.isNotEmpty(element.getResTimeout())) {
+            tcpSampler.setTimeout(element.getResTimeout());
         }
         if (StringUtils.isNotEmpty(element.getConnTimeout())) {
             tcpSampler.setConnectTimeout(element.getConnTimeout());
@@ -94,11 +95,11 @@ public class MsTCPElementConverter extends AbstractJmeterElementConverter<MsTCPS
         if (!StringUtils.equals("TCPClientImpl", element.getClassname())) {
             configTestElement.setProperty(TCPSampler.CLASSNAME, element.getClassname());
         }
-        configTestElement.setProperty(TCPSampler.SERVER, element.getServer());
+        configTestElement.setProperty(TCPSampler.SERVER, element.getServerIp());
         configTestElement.setProperty(TCPSampler.PORT, element.getPort());
         configTestElement.setProperty(TCPSampler.TIMEOUT_CONNECT, element.getConnTimeout());
         configTestElement.setProperty(TCPSampler.RE_USE_CONNECTION, element.isReUseConnection());
-        configTestElement.setProperty(TCPSampler.NODELAY, element.isNodelay());
+        configTestElement.setProperty(TCPSampler.NODELAY, element.isNoDelay());
         configTestElement.setProperty(TCPSampler.CLOSE_CONNECTION, element.isCloseConnection());
         configTestElement.setProperty(TCPSampler.SO_LINGER, element.getSoLinger());
         if (!StringUtils.equalsIgnoreCase("LengthPrefixedBinaryTCPClientImpl", element.getClassname())) {

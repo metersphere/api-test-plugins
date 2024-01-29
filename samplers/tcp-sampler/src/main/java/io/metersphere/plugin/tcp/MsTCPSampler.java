@@ -9,18 +9,18 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @PluginSubType("MsTCPSampler")
 public class MsTCPSampler extends AbstractMsTestElement {
+    private String comments;
     private String classname;
-    private String server;
+    private String serverIp;
     private String port;
     private String connTimeout;
-    private String timeout;
+    private String resTimeout;
     private boolean reUseConnection = true;
-    private boolean nodelay;
+    private boolean noDelay;
     private boolean closeConnection;
     private String soLinger;
     private String eolByte;
     private String username;
     private String password;
     private String request;
-    private String encoding;
 }
