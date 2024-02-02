@@ -1,6 +1,7 @@
 package io.metersphere.plugin.tcp;
 
 import io.metersphere.plugin.sdk.util.PluginLogUtils;
+import io.metersphere.plugin.sdk.util.PluginUtils;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.ObjectUtils;
 
@@ -11,8 +12,9 @@ public class MsEnvironmentMapper {
 
     public static void parse(Map<String, Object> envConfig, MsTCPSampler element) {
         try {
+
             if (ObjectUtils.isNotEmpty(envConfig)) {
-                MsEnvironment envElement = mapToModel(envConfig, MsEnvironment.class);
+                MsEnvironment envElement = PluginUtils.parseObject(PluginUtils.toJSONString(envConfig), MsEnvironment.class);
                 BeanUtils.copyProperties(envElement, element);
             }
         } catch (Exception e) {
