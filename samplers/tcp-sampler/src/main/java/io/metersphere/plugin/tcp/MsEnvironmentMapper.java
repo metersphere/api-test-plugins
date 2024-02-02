@@ -5,16 +5,14 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.ObjectUtils;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
 import java.util.Map;
 
 public class MsEnvironmentMapper {
 
-    public static void parse(Object envConfig, MsTCPSampler element) {
+    public static void parse(Map<String, Object> envConfig, MsTCPSampler element) {
         try {
             if (ObjectUtils.isNotEmpty(envConfig)) {
-                Map<String, Object> map = modelToMap(envConfig);
-                MsEnvironment envElement = mapToModel(map, MsEnvironment.class);
+                MsEnvironment envElement = mapToModel(envConfig, MsEnvironment.class);
                 BeanUtils.copyProperties(envElement, element);
             }
         } catch (Exception e) {
@@ -42,21 +40,6 @@ public class MsEnvironmentMapper {
             PluginLogUtils.error("Failed to mapToModel", e);
             return null;
         }
-    }
-
-    public static Map<String, Object> modelToMap(Object model) throws IllegalAccessException {
-        if (model instanceof Map) {
-            return (Map<String, Object>) model;
-        }
-        Map<String, Object> map = new HashMap<>();
-        Class<?> modelClass = model.getClass();
-        for (Field field : modelClass.getDeclaredFields()) {
-            field.setAccessible(true);
-            Object value = field.get(model);
-            map.put(field.getName(), value);
-        }
-
-        return map;
     }
 
     private static Field getField(Class<?> clazz, String fieldName) {
