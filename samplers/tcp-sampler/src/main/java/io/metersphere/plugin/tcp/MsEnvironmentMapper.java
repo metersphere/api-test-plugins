@@ -15,7 +15,11 @@ public class MsEnvironmentMapper {
 
             if (ObjectUtils.isNotEmpty(envConfig)) {
                 MsEnvironment envElement = PluginUtils.parseObject(PluginUtils.toJSONString(envConfig), MsEnvironment.class);
+                PluginLogUtils.info("当前环境内容：{}", envElement.toString());
+
                 BeanUtils.copyProperties(envElement, element);
+
+                PluginLogUtils.info("环境处理后：{}", element.toString());
             }
         } catch (Exception e) {
             PluginLogUtils.error("Failed to parse", e);

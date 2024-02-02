@@ -23,4 +23,8 @@ public class MsTCPSampler extends AbstractMsTestElement {
     private String username;
     private String password;
     private String request;
+
+    public String toString() {
+        return "MsTCPSampler(comments=" + this.getComments() + ", classname=" + this.getClassname() + ", serverIp=" + this.getServerIp() + ", port=" + this.getPort() + ", connTimeout=" + this.getConnTimeout() + ", resTimeout=" + this.getResTimeout() + ", reUseConnection=" + this.isReUseConnection() + ", noDelay=" + this.isNoDelay() + ", closeConnection=" + this.isCloseConnection() + ", soLinger=" + this.getSoLinger() + ", eolByte=" + this.getEolByte() + ", username=" + this.getUsername() + ", password=" + this.getPassword() + ", request=" + this.getRequest() + ")";
+    }
 }
