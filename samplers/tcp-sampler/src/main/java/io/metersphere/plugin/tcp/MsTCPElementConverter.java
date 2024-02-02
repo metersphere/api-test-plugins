@@ -25,6 +25,9 @@ public class MsTCPElementConverter extends AbstractJmeterElementConverter<MsTCPS
             PluginLogUtils.info("TCPSamplerProxy is disabled");
             return;
         }
+        // 环境处理
+        MsEnvironmentMapper.parse(config.getProtocolEnvConfig(element), element);
+
         final HashTree samplerHashTree = new ListedHashTree();
         samplerHashTree.add(tcpConfig(element));
         TCPSampler tcpSampler = tcpSampler(element);
