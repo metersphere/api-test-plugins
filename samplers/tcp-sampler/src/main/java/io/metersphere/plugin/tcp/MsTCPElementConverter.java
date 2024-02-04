@@ -36,6 +36,7 @@ public class MsTCPElementConverter extends AbstractJmeterElementConverter<MsTCPS
         tcpSampler.setProperty(ElementProperty.MS_RESOURCE_ID.name(), element.getResourceId());
         tcpSampler.setProperty(ElementProperty.MS_STEP_ID.name(), element.getStepId());
         tcpSampler.setProperty(ElementProperty.MS_REPORT_ID.name(), config.getReportId());
+        tcpSampler.setProperty(ElementProperty.PROJECT_ID.name(), element.getProjectId());
 
         tree.set(tcpSampler, samplerHashTree);
         parseChild(samplerHashTree, element, config);
