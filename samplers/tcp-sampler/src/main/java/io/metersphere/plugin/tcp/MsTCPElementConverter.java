@@ -14,10 +14,12 @@ import org.apache.jmeter.save.SaveService;
 import org.apache.jmeter.testelement.TestElement;
 import org.apache.jorphan.collections.HashTree;
 import org.apache.jorphan.collections.ListedHashTree;
+import org.pf4j.Extension;
 
 /**
  * TCP 协议脚本解析器
  */
+@Extension
 public class MsTCPElementConverter extends AbstractJmeterElementConverter<MsTCPSampler> {
     @Override
     public void toHashTree(HashTree tree, MsTCPSampler element, ParameterConfig config) {

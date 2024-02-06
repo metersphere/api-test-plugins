@@ -4,10 +4,12 @@ import io.metersphere.plugin.api.annotation.PluginSubType;
 import io.metersphere.plugin.api.spi.AbstractMsTestElement;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import org.pf4j.Extension;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
 @PluginSubType("MsTCPSampler")
+@Extension
 public class MsTCPSampler extends AbstractMsTestElement {
     private String comments;
     private String classname;
