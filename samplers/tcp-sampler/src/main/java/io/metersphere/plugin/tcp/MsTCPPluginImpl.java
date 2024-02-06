@@ -1,9 +1,9 @@
 package io.metersphere.plugin.tcp;
 
 
-import io.metersphere.plugin.api.spi.AbstractApiPlugin;
+import io.metersphere.plugin.api.spi.AbstractProtocolPlugin;
 
-public class MsTCPPluginImpl extends AbstractApiPlugin {
+public class MsTCPPluginImpl extends AbstractProtocolPlugin {
 
     public static final String MQTT_PLUGIN_NAME = "TCP";
 
@@ -27,5 +27,10 @@ public class MsTCPPluginImpl extends AbstractApiPlugin {
         // 脚本渲染方式支持两种，一种是系统内嵌渲染，一种是三方插件FromCreate渲染 (scriptType = "Embedded" | "FormCreate")
 
         return "script";
+    }
+
+    @Override
+    public String getProtocol() {
+        return MQTT_PLUGIN_NAME;
     }
 }
