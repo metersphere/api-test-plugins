@@ -5,10 +5,8 @@ import io.metersphere.plugin.api.constants.ElementProperty;
 import io.metersphere.plugin.api.dto.ParameterConfig;
 import io.metersphere.plugin.api.spi.AbstractJmeterElementConverter;
 import io.metersphere.plugin.sdk.util.PluginLogUtils;
-import org.apache.commons.codec.CharEncoding;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jmeter.config.ConfigTestElement;
-import org.apache.jmeter.protocol.tcp.sampler.MsTCPClientImpl;
 import org.apache.jmeter.protocol.tcp.sampler.TCPSampler;
 import org.apache.jmeter.save.SaveService;
 import org.apache.jmeter.testelement.TestElement;
@@ -27,6 +25,7 @@ public class MsTCPElementConverter extends AbstractJmeterElementConverter<MsTCPS
             PluginLogUtils.info("TCPSamplerProxy is disabled");
             return;
         }
+
         // 环境处理
         MsEnvironmentMapper.parse(config.getProtocolEnvConfig(element), element);
 
@@ -60,11 +59,6 @@ public class MsTCPElementConverter extends AbstractJmeterElementConverter<MsTCPS
         } else {
             tcpSampler.setClassname(element.getClassname());
         }
-        // 自定义实现，值Encoding
-        if (StringUtils.equals("TCPClientImpl", element.getClassname())) {
-            tcpSampler.setClassname(MsTCPClientImpl.class.getCanonicalName());
-        }
-        tcpSampler.setCharset(CharEncoding.UTF_8);
         tcpSampler.setServer(element.getServerIp());
         tcpSampler.setPort(element.getPort());
         tcpSampler.setConnectTimeout(element.getConnTimeout());
