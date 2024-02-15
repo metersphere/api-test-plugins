@@ -4,9 +4,9 @@
   "scriptType":"FromCreate",
   "script": [
     {
-      "type": "el-divider",
+      "type": "a-divider",
       "props": {
-        "contentPosition": "left"
+        "orientation": "left"
       },
       "wrap": {
         "show": false
@@ -15,7 +15,7 @@
       "children": [
         "目标Server配置"
       ],
-      "_fc_drag_tag": "el-divider",
+      "_fc_drag_tag": "a-divider",
       "hidden": false,
       "display": true
     },
@@ -239,9 +239,9 @@
       "display": true
     },
     {
-      "type": "el-divider",
+      "type": "a-divider",
       "props": {
-        "contentPosition": "left"
+        "orientation": "left"
       },
       "wrap": {
         "show": false
@@ -250,7 +250,7 @@
       "children": [
         "客户端或登录配置"
       ],
-      "_fc_drag_tag": "el-divider",
+      "_fc_drag_tag": "a-divider",
       "hidden": false,
       "display": true
     },
