@@ -53,7 +53,8 @@
               "info": "",
               "_fc_drag_tag": "input",
               "hidden": false,
-              "display": true
+              "display": true,
+              "$required": ""
             },
             {
               "type": "input",
@@ -61,11 +62,15 @@
               "title": "连接超时时间",
               "info": "",
               "props": {
-                "type": "number"
+                "type": "number",
+                "showWordLimit": false,
+                "placeholder": "5000"
               },
               "_fc_drag_tag": "input",
               "hidden": false,
-              "display": true
+              "display": true,
+              "$required": "",
+              "value": "5000"
             }
           ],
           "_fc_drag_tag": "col",
@@ -85,7 +90,8 @@
               "info": "",
               "_fc_drag_tag": "input",
               "hidden": false,
-              "display": true
+              "display": true,
+              "$required": ""
             },
             {
               "type": "input",
@@ -93,11 +99,15 @@
               "title": "响应超时时间",
               "info": "",
               "props": {
-                "type": "number"
+                "type": "number",
+                "showWordLimit": false,
+                "placeholder": "5000"
               },
               "_fc_drag_tag": "input",
               "hidden": false,
-              "display": true
+              "display": true,
+              "$required": "",
+              "value": "5000"
             }
           ],
           "_fc_drag_tag": "col",
@@ -306,7 +316,8 @@
               "_fc_drag_tag": "select",
               "hidden": false,
               "display": true,
-              "$required": ""
+              "$required": "",
+              "value": "TCPClientImpl"
             }
           ],
           "_fc_drag_tag": "col",

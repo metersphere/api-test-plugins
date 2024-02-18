@@ -43,11 +43,14 @@
               "title": "连接超时时间",
               "info": "",
               "props": {
-                "type": "number"
+                "type": "number",
+                "showWordLimit": false,
+                "placeholder": "5000"
               },
               "_fc_drag_tag": "input",
               "hidden": false,
-              "display": true
+              "display": true,
+              "value": "5000"
             }
           ],
           "_fc_drag_tag": "col",
@@ -75,11 +78,14 @@
               "title": "响应超时时间",
               "info": "",
               "props": {
-                "type": "number"
+                "type": "number",
+                "showWordLimit": false,
+                "placeholder": "5000"
               },
               "_fc_drag_tag": "input",
               "hidden": false,
-              "display": true
+              "display": true,
+              "value": "5000"
             }
           ],
           "_fc_drag_tag": "col",
