@@ -10,7 +10,7 @@
       "hideRequiredAsterisk": false,
       "showMessage": true,
       "inlineMessage": false,
-      "scrollToFirstError": true,
+      "scrollToFirstError": true
     },
     "submitBtn": false,
     "resetBtn": false
