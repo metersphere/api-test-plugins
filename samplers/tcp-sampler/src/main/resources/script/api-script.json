@@ -2,6 +2,19 @@
   "id": "api",
   "name": "TCP插件脚本",
   "scriptType":"FromCreate",
+  "options": {
+    "form": {
+      "labelAlign": "right",
+      "autoLabelWidth": true,
+      "size": "small",
+      "hideRequiredAsterisk": false,
+      "showMessage": true,
+      "inlineMessage": false,
+      "scrollToFirstError": true,
+    },
+    "submitBtn": false,
+    "resetBtn": false
+  },
   "script": [
     {
       "type": "input",
