@@ -7,6 +7,7 @@ import io.metersphere.plugin.api.spi.AbstractJmeterElementConverter;
 import io.metersphere.plugin.sdk.util.PluginLogUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jmeter.config.ConfigTestElement;
+import org.apache.jmeter.protocol.tcp.sampler.TCPSampler;
 import org.apache.jmeter.save.SaveService;
 import org.apache.jmeter.testelement.TestElement;
 import org.apache.jorphan.collections.HashTree;
@@ -17,9 +18,9 @@ import org.pf4j.Extension;
  * TCP 协议脚本解析器
  */
 @Extension
-public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampler> {
+public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSamplerEntry> {
     @Override
-    public void toHashTree(HashTree tree, TCPSampler element, ParameterConfig config) {
+    public void toHashTree(HashTree tree, TCPSamplerEntry element, ParameterConfig config) {
         if (!element.getEnable()) {
             PluginLogUtils.info("TCPSamplerProxy is disabled");
             return;
@@ -30,7 +31,7 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
 
         final HashTree samplerHashTree = new ListedHashTree();
         samplerHashTree.add(tcpConfig(element));
-        org.apache.jmeter.protocol.tcp.sampler.TCPSampler tcpSampler = tcpSampler(element);
+        TCPSampler tcpSampler = tcpSampler(element);
 
         // TODO: 当前步骤唯一标识，很重要，结果和步骤匹配的关键
         tcpSampler.setProperty(ElementProperty.MS_RESOURCE_ID.name(), element.getResourceId());
@@ -42,15 +43,15 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
         parseChild(samplerHashTree, element, config);
     }
 
-    private org.apache.jmeter.protocol.tcp.sampler.TCPSampler tcpSampler(TCPSampler element) {
-        org.apache.jmeter.protocol.tcp.sampler.TCPSampler tcpSampler = new org.apache.jmeter.protocol.tcp.sampler.TCPSampler();
+    private TCPSampler tcpSampler(TCPSamplerEntry element) {
+        TCPSampler tcpSampler = new TCPSampler();
         tcpSampler.setEnabled(true);
         tcpSampler.setName(element.getName());
         if (StringUtils.isEmpty(element.getName())) {
             tcpSampler.setName("TCPSampler");
         }
 
-        tcpSampler.setProperty(TestElement.TEST_CLASS, org.apache.jmeter.protocol.tcp.sampler.TCPSampler.class.getName());
+        tcpSampler.setProperty(TestElement.TEST_CLASS, TCPSampler.class.getName());
         tcpSampler.setProperty(TestElement.GUI_CLASS, SaveService.aliasToClass("TCPSamplerGui"));
 
         if (StringUtils.isEmpty(element.getClassname())) {
@@ -61,8 +62,8 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
         tcpSampler.setServer(element.getServerIp());
         tcpSampler.setPort(element.getPort());
         tcpSampler.setConnectTimeout(element.getConnTimeout());
-        tcpSampler.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.RE_USE_CONNECTION, element.isReUseConnection());
-        tcpSampler.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.NODELAY, element.isNoDelay());
+        tcpSampler.setProperty(TCPSampler.RE_USE_CONNECTION, element.isReUseConnection());
+        tcpSampler.setProperty(TCPSampler.NODELAY, element.isNoDelay());
         tcpSampler.setCloseConnection(String.valueOf(element.isCloseConnection()));
         tcpSampler.setSoLinger(element.getSoLinger());
         if (StringUtils.equalsIgnoreCase("LengthPrefixedBinaryTCPClientImpl", element.getClassname())) {
@@ -85,26 +86,26 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
     }
 
 
-    private ConfigTestElement tcpConfig(TCPSampler element) {
+    private ConfigTestElement tcpConfig(TCPSamplerEntry element) {
         ConfigTestElement configTestElement = new ConfigTestElement();
         configTestElement.setEnabled(true);
         configTestElement.setName(element.getName());
         configTestElement.setProperty(TestElement.TEST_CLASS, ConfigTestElement.class.getName());
         configTestElement.setProperty(TestElement.GUI_CLASS, SaveService.aliasToClass("TCPConfigGui"));
         if (!StringUtils.equals("TCPClientImpl", element.getClassname())) {
-            configTestElement.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.CLASSNAME, element.getClassname());
+            configTestElement.setProperty(TCPSampler.CLASSNAME, element.getClassname());
         }
-        configTestElement.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.SERVER, element.getServerIp());
-        configTestElement.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.PORT, element.getPort());
-        configTestElement.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.TIMEOUT_CONNECT, element.getConnTimeout());
-        configTestElement.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.RE_USE_CONNECTION, element.isReUseConnection());
-        configTestElement.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.NODELAY, element.isNoDelay());
-        configTestElement.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.CLOSE_CONNECTION, element.isCloseConnection());
-        configTestElement.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.SO_LINGER, element.getSoLinger());
+        configTestElement.setProperty(TCPSampler.SERVER, element.getServerIp());
+        configTestElement.setProperty(TCPSampler.PORT, element.getPort());
+        configTestElement.setProperty(TCPSampler.TIMEOUT_CONNECT, element.getConnTimeout());
+        configTestElement.setProperty(TCPSampler.RE_USE_CONNECTION, element.isReUseConnection());
+        configTestElement.setProperty(TCPSampler.NODELAY, element.isNoDelay());
+        configTestElement.setProperty(TCPSampler.CLOSE_CONNECTION, element.isCloseConnection());
+        configTestElement.setProperty(TCPSampler.SO_LINGER, element.getSoLinger());
         if (!StringUtils.equalsIgnoreCase("LengthPrefixedBinaryTCPClientImpl", element.getClassname())) {
-            configTestElement.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.EOL_BYTE, element.getEolByte());
+            configTestElement.setProperty(TCPSampler.EOL_BYTE, element.getEolByte());
         }
-        configTestElement.setProperty(org.apache.jmeter.protocol.tcp.sampler.TCPSampler.SO_LINGER, element.getSoLinger());
+        configTestElement.setProperty(TCPSampler.SO_LINGER, element.getSoLinger());
         configTestElement.setProperty(ConfigTestElement.USERNAME, element.getUsername());
         configTestElement.setProperty(ConfigTestElement.PASSWORD, element.getPassword());
         return configTestElement;

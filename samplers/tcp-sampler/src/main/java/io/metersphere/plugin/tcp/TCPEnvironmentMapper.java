@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class TCPEnvironmentMapper {
 
-    public static void parse(Map<String, Object> envConfig, TCPSampler element) {
+    public static void parse(Map<String, Object> envConfig, TCPSamplerEntry element) {
         try {
 
             if (ObjectUtils.isNotEmpty(envConfig)) {
