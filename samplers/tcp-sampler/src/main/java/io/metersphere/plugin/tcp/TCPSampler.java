@@ -10,7 +10,7 @@ import org.pf4j.Extension;
 @EqualsAndHashCode(callSuper = true)
 @PluginSubType("MsTCPSampler")
 @Extension
-public class MsTCPSampler extends AbstractMsTestElement {
+public class TCPSampler extends AbstractMsTestElement {
     private String comments;
     private String classname;
     private String serverIp;

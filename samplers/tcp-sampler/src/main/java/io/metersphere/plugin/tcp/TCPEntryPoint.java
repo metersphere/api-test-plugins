@@ -3,21 +3,15 @@ package io.metersphere.plugin.tcp;
 
 import io.metersphere.plugin.api.spi.AbstractProtocolPlugin;
 
-public class MsTCPPluginImpl extends AbstractProtocolPlugin {
+public class TCPEntryPoint extends AbstractProtocolPlugin {
 
-    public static final String MQTT_PLUGIN_NAME = "TCP";
-
-    @Override
-    public boolean isXpack() {
-        // 企业版编写验证逻辑
-        return false;
-    }
+    public static final String TCP = "TCP";
 
     @Override
     public String getName() {
         // 自定义插件名称
 
-        return MQTT_PLUGIN_NAME;
+        return TCP;
     }
 
     @Override
@@ -31,6 +25,6 @@ public class MsTCPPluginImpl extends AbstractProtocolPlugin {
 
     @Override
     public String getProtocol() {
-        return MQTT_PLUGIN_NAME;
+        return TCP;
     }
 }

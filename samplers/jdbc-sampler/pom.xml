@@ -15,7 +15,7 @@
     </dependencies>
     <properties>
         <plugin.id>jdbc-sampler</plugin.id>
-        <plugin.class>io.metersphere.plugin.jdbc.JDBCPlugin</plugin.class>
+        <plugin.class>io.metersphere.plugin.jdbc.JDBCEntryPoint</plugin.class>
     </properties>
     <build>
         <plugins>

@@ -3,7 +3,7 @@ package io.metersphere.plugin.tcp;
 import lombok.Data;
 
 @Data
-public class MsEnvironment {
+public class TCPEnvironment {
     private String comments;
     private String classname;
     private String serverIp;

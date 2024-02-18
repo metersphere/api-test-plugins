@@ -12,7 +12,7 @@
     <properties>
         <!-- 打包时将这些参数写入 MANIFEST.MF供 pf4j 识别，别修改 -->
         <plugin.id>tcp-sampler</plugin.id>
-        <plugin.class>io.metersphere.plugin.tcp.MsTCPPluginImpl</plugin.class>
+        <plugin.class>io.metersphere.plugin.tcp.TCPEntryPoint</plugin.class>
     </properties>
     <dependencies>
         <dependency>

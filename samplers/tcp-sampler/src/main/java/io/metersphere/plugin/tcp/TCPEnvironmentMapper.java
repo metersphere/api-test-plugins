@@ -8,13 +8,13 @@ import org.apache.commons.lang3.ObjectUtils;
 import java.lang.reflect.Field;
 import java.util.Map;
 
-public class MsEnvironmentMapper {
+public class TCPEnvironmentMapper {
 
-    public static void parse(Map<String, Object> envConfig, MsTCPSampler element) {
+    public static void parse(Map<String, Object> envConfig, TCPSampler element) {
         try {
 
             if (ObjectUtils.isNotEmpty(envConfig)) {
-                MsEnvironment envElement = PluginUtils.parseObject(PluginUtils.toJSONString(envConfig), MsEnvironment.class);
+                TCPEnvironment envElement = PluginUtils.parseObject(PluginUtils.toJSONString(envConfig), TCPEnvironment.class);
                 PluginLogUtils.info("当前环境内容：{}", envElement.toString());
 
                 BeanUtils.copyProperties(envElement, element);
