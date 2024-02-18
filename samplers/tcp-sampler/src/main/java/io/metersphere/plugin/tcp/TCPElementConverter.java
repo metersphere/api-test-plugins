@@ -18,9 +18,9 @@ import org.pf4j.Extension;
  * TCP 协议脚本解析器
  */
 @Extension
-public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSamplerEntry> {
+public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSamplerModule> {
     @Override
-    public void toHashTree(HashTree tree, TCPSamplerEntry element, ParameterConfig config) {
+    public void toHashTree(HashTree tree, TCPSamplerModule element, ParameterConfig config) {
         if (!element.getEnable()) {
             PluginLogUtils.info("TCPSamplerProxy is disabled");
             return;
@@ -43,7 +43,7 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
         parseChild(samplerHashTree, element, config);
     }
 
-    private TCPSampler tcpSampler(TCPSamplerEntry element) {
+    private TCPSampler tcpSampler(TCPSamplerModule element) {
         TCPSampler tcpSampler = new TCPSampler();
         tcpSampler.setEnabled(true);
         tcpSampler.setName(element.getName());
@@ -86,7 +86,7 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
     }
 
 
-    private ConfigTestElement tcpConfig(TCPSamplerEntry element) {
+    private ConfigTestElement tcpConfig(TCPSamplerModule element) {
         ConfigTestElement configTestElement = new ConfigTestElement();
         configTestElement.setEnabled(true);
         configTestElement.setName(element.getName());

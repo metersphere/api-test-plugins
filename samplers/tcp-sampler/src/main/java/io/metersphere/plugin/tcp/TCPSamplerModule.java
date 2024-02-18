@@ -8,9 +8,9 @@ import org.pf4j.Extension;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@PluginSubType("TCPSamplerEntry")
+@PluginSubType("TCPSamplerModule")
 @Extension
-public class TCPSamplerEntry extends AbstractMsTestElement {
+public class TCPSamplerModule extends AbstractMsTestElement {
     private String comments;
     private String classname;
     private String serverIp;
@@ -27,6 +27,6 @@ public class TCPSamplerEntry extends AbstractMsTestElement {
     private String request;
 
     public String toString() {
-        return "MsTCPSampler(comments=" + this.getComments() + ", classname=" + this.getClassname() + ", serverIp=" + this.getServerIp() + ", port=" + this.getPort() + ", connTimeout=" + this.getConnTimeout() + ", resTimeout=" + this.getResTimeout() + ", reUseConnection=" + this.isReUseConnection() + ", noDelay=" + this.isNoDelay() + ", closeConnection=" + this.isCloseConnection() + ", soLinger=" + this.getSoLinger() + ", eolByte=" + this.getEolByte() + ", username=" + this.getUsername() + ", password=" + this.getPassword() + ", request=" + this.getRequest() + ")";
+        return "TCPSamplerModule(comments=" + this.getComments() + ", classname=" + this.getClassname() + ", serverIp=" + this.getServerIp() + ", port=" + this.getPort() + ", connTimeout=" + this.getConnTimeout() + ", resTimeout=" + this.getResTimeout() + ", reUseConnection=" + this.isReUseConnection() + ", noDelay=" + this.isNoDelay() + ", closeConnection=" + this.isCloseConnection() + ", soLinger=" + this.getSoLinger() + ", eolByte=" + this.getEolByte() + ", username=" + this.getUsername() + ", password=" + this.getPassword() + ", request=" + this.getRequest() + ")";
     }
 }
