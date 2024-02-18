@@ -8,7 +8,7 @@ import org.pf4j.Extension;
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-@PluginSubType("MsTCPSampler")
+@PluginSubType("TCPSamplerEntry")
 @Extension
 public class TCPSamplerEntry extends AbstractMsTestElement {
     private String comments;
