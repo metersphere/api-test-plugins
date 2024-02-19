@@ -5,6 +5,7 @@ import io.metersphere.plugin.api.constants.ElementProperty;
 import io.metersphere.plugin.api.dto.ParameterConfig;
 import io.metersphere.plugin.api.spi.AbstractJmeterElementConverter;
 import io.metersphere.plugin.sdk.util.PluginLogUtils;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jmeter.config.ConfigTestElement;
 import org.apache.jmeter.protocol.tcp.sampler.TCPSampler;
@@ -62,9 +63,9 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
         tcpSampler.setServer(element.getServerIp());
         tcpSampler.setPort(element.getPort());
         tcpSampler.setConnectTimeout(element.getConnTimeout());
-        tcpSampler.setProperty(TCPSampler.RE_USE_CONNECTION, element.isReUseConnection());
-        tcpSampler.setProperty(TCPSampler.NODELAY, element.isNoDelay());
-        tcpSampler.setCloseConnection(String.valueOf(element.isCloseConnection()));
+        tcpSampler.setProperty(TCPSampler.RE_USE_CONNECTION, (CollectionUtils.isNotEmpty(element.getReUseConnection()) && element.getReUseConnection().size() > 1));
+        tcpSampler.setProperty(TCPSampler.NODELAY, (CollectionUtils.isNotEmpty(element.getNoDelay()) && element.getNoDelay().size() > 1));
+        tcpSampler.setCloseConnection((CollectionUtils.isNotEmpty(element.getCloseConnection()) && element.getCloseConnection().size() > 1) ? "true" : "false");
         tcpSampler.setSoLinger(element.getSoLinger());
         if (StringUtils.equalsIgnoreCase("LengthPrefixedBinaryTCPClientImpl", element.getClassname())) {
             element.setEolByte(null);
@@ -98,9 +99,9 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
         configTestElement.setProperty(TCPSampler.SERVER, element.getServerIp());
         configTestElement.setProperty(TCPSampler.PORT, element.getPort());
         configTestElement.setProperty(TCPSampler.TIMEOUT_CONNECT, element.getConnTimeout());
-        configTestElement.setProperty(TCPSampler.RE_USE_CONNECTION, element.isReUseConnection());
-        configTestElement.setProperty(TCPSampler.NODELAY, element.isNoDelay());
-        configTestElement.setProperty(TCPSampler.CLOSE_CONNECTION, element.isCloseConnection());
+        configTestElement.setProperty(TCPSampler.RE_USE_CONNECTION, CollectionUtils.isNotEmpty(element.getReUseConnection()) && element.getReUseConnection().size() > 1);
+        configTestElement.setProperty(TCPSampler.NODELAY, CollectionUtils.isNotEmpty(element.getNoDelay()) && element.getNoDelay().size() > 1);
+        configTestElement.setProperty(TCPSampler.CLOSE_CONNECTION, CollectionUtils.isNotEmpty(element.getCloseConnection()) && element.getCloseConnection().size() > 1);
         configTestElement.setProperty(TCPSampler.SO_LINGER, element.getSoLinger());
         if (!StringUtils.equalsIgnoreCase("LengthPrefixedBinaryTCPClientImpl", element.getClassname())) {
             configTestElement.setProperty(TCPSampler.EOL_BYTE, element.getEolByte());
