@@ -1,6 +1,7 @@
 {
   "id": "environment",
   "name": "TCP环境脚本",
+  "tabName": "TCP配置",
   "scriptType":"FromCreate",
   "options": {
     "form": {
