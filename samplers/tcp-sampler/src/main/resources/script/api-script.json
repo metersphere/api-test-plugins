@@ -15,6 +15,7 @@
     "submitBtn": false,
     "resetBtn": false
   },
+  "fields": ["name","comments","serverIp","connTimeout","port","resTimeout","soLinger","eolByte","closeConnection","reUseConnection","noDelay","request","classname","username","password"],
   "script": [
     {
       "type": "input",

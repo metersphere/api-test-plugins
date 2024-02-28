@@ -16,6 +16,7 @@
     "submitBtn": false,
     "resetBtn": false
   },
+  "fields": ["serverIp", "port", "connTimeout", "resTimeout", "soLinger", "eolByte", "closeConnection", "reUseConnection", "noDelay", "request", "classname", "username", "password"],
   "script": [
     {
       "type": "a-divider",
