@@ -2,7 +2,7 @@
   "id": "environment",
   "name": "TCP环境脚本",
   "tabName": "TCP配置",
-  "scriptType":"FromCreate",
+  "scriptType": "FromCreate",
   "options": {
     "form": {
       "labelAlign": "right",
@@ -16,7 +16,21 @@
     "submitBtn": false,
     "resetBtn": false
   },
-  "fields": ["serverIp", "port", "connTimeout", "resTimeout", "soLinger", "eolByte", "closeConnection", "reUseConnection", "noDelay", "request", "classname", "username", "password"],
+  "fields": [
+    "serverIp",
+    "port",
+    "connTimeout",
+    "resTimeout",
+    "soLinger",
+    "eolByte",
+    "closeConnection",
+    "reUseConnection",
+    "noDelay",
+    "request",
+    "classname",
+    "username",
+    "password"
+  ],
   "script": [
     {
       "type": "a-divider",
@@ -365,5 +379,4 @@
       "display": true
     }
   ]
-
 }

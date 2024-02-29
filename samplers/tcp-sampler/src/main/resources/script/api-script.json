@@ -1,7 +1,7 @@
 {
   "id": "api",
   "name": "TCP插件脚本",
-  "scriptType":"FromCreate",
+  "scriptType": "FromCreate",
   "options": {
     "form": {
       "labelAlign": "right",
@@ -15,7 +15,36 @@
     "submitBtn": false,
     "resetBtn": false
   },
-  "fields": ["name","comments","serverIp","connTimeout","port","resTimeout","soLinger","eolByte","closeConnection","reUseConnection","noDelay","request","classname","username","password"],
+  "apiDefinitionFields": [
+    "name",
+    "comments",
+    "serverIp",
+    "connTimeout",
+    "resTimeout",
+    "soLinger",
+    "eolByte",
+    "closeConnection",
+    "reUseConnection",
+    "noDelay",
+    "request"
+  ],
+  "apiDebugFields": [
+    "name",
+    "comments",
+    "serverIp",
+    "connTimeout",
+    "port",
+    "resTimeout",
+    "soLinger",
+    "eolByte",
+    "closeConnection",
+    "reUseConnection",
+    "noDelay",
+    "request",
+    "classname",
+    "username",
+    "password"
+  ],
   "script": [
     {
       "type": "input",
@@ -387,5 +416,4 @@
       "display": true
     }
   ]
-
 }
