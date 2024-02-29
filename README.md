@@ -17,7 +17,7 @@ MeterSphere 接口测试插件
 
 ### 开发指南
 
-参考 Wiki [插件开发指南]([https://github.com/metersphere/metersphere-platform-plugin/wiki/%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97](https://github.com/metersphere/api-test-plugins/wiki/MeterSphere-v3-%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C))。
+参考 Wiki [插件开发指南](https://github.com/metersphere/api-test-plugins/wiki/MeterSphere-v3-%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C)。
 
 
 
