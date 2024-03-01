@@ -26,7 +26,6 @@
     "closeConnection",
     "reUseConnection",
     "noDelay",
-    "request",
     "classname",
     "username",
     "password"
@@ -258,18 +257,6 @@
         }
       ],
       "_fc_drag_tag": "row",
-      "hidden": false,
-      "display": true
-    },
-    {
-      "type": "input",
-      "field": "request",
-      "title": "发送内容",
-      "info": "",
-      "props": {
-        "type": "textarea"
-      },
-      "_fc_drag_tag": "input",
       "hidden": false,
       "display": true
     },
