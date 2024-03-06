@@ -18,7 +18,7 @@
   },
   "apiDefinitionFields": [
     "name",
-    "request",
+    "content",
     "comments",
     "connTimeout",
     "resTimeout"
@@ -35,7 +35,7 @@
     "closeConnection",
     "reUseConnection",
     "noDelay",
-    "request",
+    "content",
     "classname",
     "username",
     "password"
@@ -131,7 +131,7 @@
     },
     {
       "type": "input",
-      "field": "request",
+      "field": "content",
       "title": "发送内容",
       "info": "",
       "props": {

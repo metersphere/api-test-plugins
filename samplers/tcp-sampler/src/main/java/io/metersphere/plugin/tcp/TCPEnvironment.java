@@ -19,5 +19,5 @@ public class TCPEnvironment {
     private String eolByte;
     private String username;
     private String password;
-    private String request;
+    private String content;
 }

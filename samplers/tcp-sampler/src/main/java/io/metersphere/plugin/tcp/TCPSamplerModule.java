@@ -26,5 +26,5 @@ public class TCPSamplerModule extends AbstractMsTestElement {
     private String eolByte;
     private String username;
     private String password;
-    private String request;
+    private String content;
 }

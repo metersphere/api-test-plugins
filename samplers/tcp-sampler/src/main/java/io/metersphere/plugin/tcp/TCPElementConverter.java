@@ -78,7 +78,7 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
         if (StringUtils.isNotEmpty(element.getConnTimeout())) {
             tcpSampler.setConnectTimeout(element.getConnTimeout());
         }
-        String value = element.getRequest();
+        String value = element.getContent();
         tcpSampler.setRequestData(value);
         tcpSampler.setProperty(ConfigTestElement.USERNAME, element.getUsername());
         tcpSampler.setProperty(ConfigTestElement.PASSWORD, element.getPassword());
