@@ -5,11 +5,11 @@
     <parent>
         <groupId>io.metersphere</groupId>
         <artifactId>logic-controller</artifactId>
-        <version>${reversion}</version>
+        <version>3.x</version>
     </parent>
 
     <artifactId>parallel-controller</artifactId>
-    <version>${reversion}</version>
+
     <description>并行控制器扩展插件</description>
 
     <dependencies>

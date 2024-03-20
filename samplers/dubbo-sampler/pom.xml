@@ -5,11 +5,11 @@
     <parent>
         <groupId>io.metersphere</groupId>
         <artifactId>samplers</artifactId>
-        <version>${reversion}</version>
+        <version>3.x</version>
     </parent>
 
     <artifactId>dubbo-sampler</artifactId>
-    <version>${reversion}</version>
+
 
     <dependencies>
 

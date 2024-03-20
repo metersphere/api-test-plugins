@@ -5,10 +5,10 @@
     <parent>
         <groupId>io.metersphere</groupId>
         <artifactId>samplers</artifactId>
-        <version>${reversion}</version>
+        <version>3.x</version>
     </parent>
     <artifactId>tcp-sampler</artifactId>
-    <version>${reversion}</version>
+
     <properties>
         <!-- 打包时将这些参数写入 MANIFEST.MF供 pf4j 识别，别修改 -->
         <plugin.id>tcp-sampler</plugin.id>

@@ -6,12 +6,12 @@
     <parent>
         <groupId>io.metersphere</groupId>
         <artifactId>api-test-plugins</artifactId>
-        <version>${reversion}</version>
+        <version>3.x</version>
     </parent>
 
     <packaging>pom</packaging>
     <artifactId>logic-controller</artifactId>
-    <version>${reversion}</version>
+
     <name>plugin-logic-controller</name>
     <description>扩展逻辑控制器相关组件</description>
 

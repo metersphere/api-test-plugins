@@ -33,7 +33,7 @@ pipeline {
                         export CLASSPATH=$JAVA_HOME/lib:$CLASSPATH
                         export PATH=$JAVA_HOME/bin:$PATH
                         java -version
-                        mvn clean install -Drevision=${REVISION} -Dgpg.skip -DskipTests --settings ./settings.xml
+                        ./mvnw clean install -Drevision=${REVISION} -Dgpg.skip -DskipTests --settings ./settings.xml
                     '''
                 }
             }
