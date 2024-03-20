@@ -1,7 +1,7 @@
 package io.metersphere.plugin.tcp;
 
 import io.metersphere.plugin.api.annotation.PluginSubType;
-import io.metersphere.plugin.api.spi.AbstractMsTestElement;
+import io.metersphere.plugin.api.spi.AbstractMsProtocolTestElement;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.pf4j.Extension;
@@ -12,7 +12,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @PluginSubType("TCPSamplerModule")
 @Extension
-public class TCPSamplerModule extends AbstractMsTestElement {
+public class TCPSamplerModule extends AbstractMsProtocolTestElement {
     private String comments;
     private String classname;
     private String serverIp;

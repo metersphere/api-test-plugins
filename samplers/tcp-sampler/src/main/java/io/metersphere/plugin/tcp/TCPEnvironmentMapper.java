@@ -3,6 +3,7 @@ package io.metersphere.plugin.tcp;
 import io.metersphere.plugin.sdk.util.PluginLogUtils;
 import io.metersphere.plugin.sdk.util.PluginUtils;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.ObjectUtils;
 
 import java.lang.reflect.Field;
@@ -10,10 +11,23 @@ import java.util.Map;
 
 public class TCPEnvironmentMapper {
 
+    /**
+     * 判断是否启用环境
+     * 非自定义请求启用
+     * 自定义请求需要判断是否启用
+     */
+    private static boolean isEnvEnable(TCPSamplerModule element) {
+        if (BooleanUtils.isTrue(element.getCustomizeRequest())) {
+            return BooleanUtils.isTrue(element.getCustomizeRequestEnvEnable());
+        } else {
+            return true;
+        }
+    }
+
     public static void parse(Map<String, Object> envConfig, TCPSamplerModule element) {
         try {
-
-            if (ObjectUtils.isNotEmpty(envConfig)) {
+            // 启用环境配置
+            if (ObjectUtils.isNotEmpty(envConfig) && isEnvEnable(element)) {
                 TCPEnvironment envElement = PluginUtils.parseObject(PluginUtils.toJSONString(envConfig), TCPEnvironment.class);
                 PluginLogUtils.info("当前环境内容：{}", envElement.toString());
 
