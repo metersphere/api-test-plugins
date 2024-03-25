@@ -47,7 +47,7 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
     private TCPSampler tcpSampler(TCPSamplerModule element) {
         TCPSampler tcpSampler = new TCPSampler();
         tcpSampler.setEnabled(true);
-        tcpSampler.setName(element.getName());
+        tcpSampler.setName(StringUtils.isNotBlank(element.getName()) ? element.getName() : "TCPSampler");
         if (StringUtils.isEmpty(element.getName())) {
             tcpSampler.setName("TCPSampler");
         }
@@ -90,7 +90,7 @@ public class TCPElementConverter extends AbstractJmeterElementConverter<TCPSampl
     private ConfigTestElement tcpConfig(TCPSamplerModule element) {
         ConfigTestElement configTestElement = new ConfigTestElement();
         configTestElement.setEnabled(true);
-        configTestElement.setName(element.getName());
+        configTestElement.setName(StringUtils.isNotBlank(element.getName()) ? element.getName() : "TCPConfig");
         configTestElement.setProperty(TestElement.TEST_CLASS, ConfigTestElement.class.getName());
         configTestElement.setProperty(TestElement.GUI_CLASS, SaveService.aliasToClass("TCPConfigGui"));
         if (!StringUtils.equals("TCPClientImpl", element.getClassname())) {

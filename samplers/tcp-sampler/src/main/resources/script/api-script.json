@@ -17,14 +17,12 @@
     "resetBtn": false
   },
   "apiDefinitionFields": [
-    "name",
     "content",
     "comments",
     "connTimeout",
     "resTimeout"
   ],
   "apiDebugFields": [
-    "name",
     "comments",
     "serverIp",
     "connTimeout",
@@ -41,15 +39,6 @@
     "password"
   ],
   "script": [
-    {
-      "type": "input",
-      "field": "name",
-      "title": "名称",
-      "info": "",
-      "_fc_drag_tag": "input",
-      "hidden": false,
-      "display": true
-    },
     {
       "type": "select",
       "field": "classname",
